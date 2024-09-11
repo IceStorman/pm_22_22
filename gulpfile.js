@@ -33,7 +33,6 @@ gulp.task('scss', function() {
         .pipe(browserSync.stream());
 });
 
-// Таск для JS
 gulp.task('scripts', function() {
     return gulp.src('app/js/*.js')
         .pipe(concat('all.js'))
@@ -43,7 +42,6 @@ gulp.task('scripts', function() {
         .pipe(browserSync.stream());
 });
 
-// Таск для оптимізації зображень
 gulp.task('images', function() {
     return gulp.src('app/images/*')
         .pipe(imagemin())
@@ -51,7 +49,6 @@ gulp.task('images', function() {
         .pipe(browserSync.stream());
 });
 
-// Налаштування BrowserSync
 gulp.task('serve', function() {
     browserSync.init({
         server: {
@@ -65,5 +62,4 @@ gulp.task('serve', function() {
     gulp.watch('app/images/*', gulp.series('images'));
 });
 
-// Таск за замовчуванням
 gulp.task('default', gulp.series('html', 'scss', 'scripts', 'images', 'serve'));
