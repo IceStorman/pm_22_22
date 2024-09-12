@@ -25,12 +25,12 @@ gulp.task('html', function() {
 });
 
 gulp.task('scss', function() {
-    return gulp.src('app/scss/*.scss')
-        .pipe(sass().on('error', sass.logError))
+    return gulp.src('app/scss/*.scss') // Source your SCSS files
+        .pipe(sass().on('error', sass.logError)) // Compile and minify SCSS
         .pipe(cssnano())
-        .pipe(rename({ suffix: '.min' }))
-        .pipe(gulp.dest('dist/css'))
-        .pipe(browserSync.stream());
+        .pipe(rename({ suffix: '.min' })) // Rename the output file with .min suffix
+        .pipe(gulp.dest('dist/css')) // Output to dist/css
+        .pipe(browserSync.stream()); // Inject changes without reloading the browser
 });
 
 gulp.task('scripts', function() {
@@ -56,10 +56,10 @@ gulp.task('serve', function() {
         }
     });
 
-    gulp.watch('app/*.html', gulp.series('html'));
     gulp.watch('app/scss/*.scss', gulp.series('scss'));
-    gulp.watch('app/js/*.js', gulp.series('scripts'));
-    gulp.watch('app/images/*', gulp.series('images'));
+    gulp.watch('app/*.html', gulp.series('html')).on('change', browserSync.reload);
+    gulp.watch('app/js/*.js', gulp.series('scripts')).on('change', browserSync.reload);
+    gulp.watch('app/images/*', gulp.series('images')).on('change', browserSync.reload);
 });
 
 gulp.task('default', gulp.series('html', 'scss', 'scripts', 'images', 'serve'));
