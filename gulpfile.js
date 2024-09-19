@@ -43,7 +43,7 @@ gulp.task('scripts', function() {
 });
 
 gulp.task('images', function() {
-    return gulp.src('app/images/*')
+    return gulp.src('app/images/*', { encoding: false })
         .pipe(imagemin())
         .pipe(gulp.dest('dist/images'))
         .pipe(browserSync.stream());

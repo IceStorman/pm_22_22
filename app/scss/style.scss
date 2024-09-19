@@ -14,7 +14,7 @@ body {
 }
 
 .header {
-  text-align: center;
+  text-align: left;
   margin-bottom: 20px;
 
   h1 {
@@ -27,9 +27,12 @@ body {
     font-size: 18px;
   }
 }
+.first-name
+{
 
+}
 .contact-info {
-  text-align: center;
+  text-align: left;
   margin: 10px 0;
 
   p {
@@ -37,7 +40,15 @@ body {
   }
 }
 
-.about,
+.aboutMe
+{
+  margin-right: 0px;
+}
+.lorem-bolded
+{
+  font-weight: bold;
+  font-style: italic;
+}
 .education,
 .experience,
 .references,
@@ -56,9 +67,12 @@ h3 {
   display: flex;
   justify-content: space-between;
 
-  .content-left,
+  .content-left
+  {
+    width: 60%
+  }
   .content-right {
-    width: 48%;
+    width: 38%;
   }
 }
 
