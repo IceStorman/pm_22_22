@@ -1,5 +1,5 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: Monospaced, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f4f4f4;
@@ -16,20 +16,39 @@ body {
 .header {
   text-align: left;
   margin-bottom: 20px;
+  border-bottom: 1px solid #ccc;
 
   h1 {
+    font-family: monospace;
     margin: 0;
     font-size: 36px;
   }
 
   h2 {
-    color: gray;
+    font-family: monospace;
     font-size: 18px;
   }
 }
+.contact-box {
+  padding: 15px;
+  background-color: #d8d6d5;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.contact-box i {
+  font-size: 24px;
+  margin-right: 10px;
+  color: red;
+}
 .first-name
 {
-
+  font-weight: bold;
+}
+.last-name
+{
+  font-weight: normal;
 }
 .contact-info {
   text-align: left;
