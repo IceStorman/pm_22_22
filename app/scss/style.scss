@@ -63,6 +63,22 @@ body {
 {
   margin-right: 0px;
 }
+
+.heading-section
+{
+  display: flex;
+  flex-direction: row;
+  overflow: visible;
+  i{
+    font-size: 1.5em;
+    margin-top: 5px;
+    margin-left: 10px;
+  }
+  h3{
+    margin-left: 20px;
+  }
+}
+
 .lorem-bolded
 {
   font-weight: bold;
@@ -78,13 +94,17 @@ body {
 }
 
 h3 {
-  border-bottom: 2px solid #e0e0e0;
   padding-bottom: 5px;
 }
 
 .content {
   display: flex;
   justify-content: space-between;
+
+  h3
+  {
+    font-weight: bold;
+  }
 
   .content-left
   {
@@ -131,4 +151,23 @@ h3 {
       border-radius: 5px;
     }
   }
+}
+
+.underline {
+  display: flex;
+  align-items: center;
+  margin-top: -5px;
+}
+
+.underline .red-line {
+  width: 40px;
+  height: 4px;
+  background-color: red;
+  margin-right: 10px;
+}
+
+.underline .grey-line {
+  flex-grow: 1;
+  height: 1px;
+  background-color: #333; /* Grey color for the long line */
 }
