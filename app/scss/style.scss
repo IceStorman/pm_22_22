@@ -242,14 +242,14 @@ h3 {
   }
 }
 
-.skill-bar {
+.bar {
   flex: 1;
   background-color: #eee;
   height: 8px;
   border-radius: 5px;
   position: relative;
 
-  .skill-level {
+  .progress {
     height: 100%;
     background-color: red;
     border-radius: 5px;
