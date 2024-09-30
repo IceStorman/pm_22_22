@@ -64,7 +64,7 @@ body {
   margin-right: 0px;
 }
 
-.heading-section
+.heading-section-left
 {
   display: flex;
   flex-direction: row;
@@ -73,6 +73,21 @@ body {
     font-size: 1.5em;
     margin-top: 5px;
     margin-left: 10px;
+  }
+  h3{
+    margin-left: 20px;
+  }
+}
+
+.heading-section-right
+{
+  display: flex;
+  flex-direction: row;
+  overflow: visible;
+  i{
+    font-size: 1.5em;
+    margin-top: 5px;
+    margin-left: 5px;
   }
   h3{
     margin-left: 20px;
@@ -204,7 +219,21 @@ h3 {
   }
 }
 
-.reference-item,
+.reference-item {
+  margin-bottom: 30px;
+  h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+}
+.address {
+  color: red;
+  font-style: italic;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
 .skill-item {
   margin: 10px 0;
 
@@ -214,18 +243,31 @@ h3 {
 }
 
 .skill-bar {
-  background-color: #f0f0f0;
-  border-radius: 3px;
-  overflow: hidden;
-  margin: 5px 0;
+  flex: 1;
+  background-color: #eee;
   height: 8px;
+  border-radius: 5px;
+  position: relative;
 
   .skill-level {
-    background-color: #4CAF50;
-    height: 8px;
+    height: 100%;
+    background-color: red;
+    border-radius: 5px;
+    position: relative;
   }
 }
-
+.progress::after {
+  content: '';
+  display: block;
+  width: 12px;
+  height: 12px;
+  background-color: red;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  border-radius: 2px;
+}
 .language-item {
   margin: 10px 0;
 }
