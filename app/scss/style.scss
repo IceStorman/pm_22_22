@@ -84,8 +84,7 @@ body {
   font-weight: bold;
   font-style: italic;
 }
-.education,
-.experience,
+
 .references,
 .skills,
 .languages,
@@ -115,11 +114,103 @@ h3 {
   }
 }
 
-.experience-item,
-.education-item,
+.education{
+  margin: 0;
+}
+
+.education-item{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  margin-left: 50px;
+}
+
+
+.education-left {
+  width: 30%;
+
+  h4 {
+    font-style: italic;
+    margin: 0;
+  }
+
+  .years {
+    color: red;
+    font-weight: bold;
+  }
+}
+
+.education-right {
+  width: 60%;
+
+  h4 {
+    font-weight: bold;
+    margin: 0;
+  }
+
+  p {
+    margin-top: 10px;
+    text-align: justify;
+    line-height: 1.5;
+  }
+}
+
+.experience{
+  margin: 0;
+}
+
+.experience-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  margin-left: 50px;
+
+  .experience-left {
+    width: 30%;
+
+    h4 {
+      font-style: italic;
+      margin: 0;
+    }
+
+    .location {
+      font-style: italic;
+    }
+
+    .years {
+      color: red;
+      font-weight: bold;
+
+      .present {
+        font-weight: bold;
+      }
+    }
+  }
+
+  .experience-right {
+    width: 65%;
+    margin-left: 50px;
+
+    h4 {
+      font-weight: bold;
+      margin: 0;
+    }
+
+    p {
+      margin-top: 10px;
+      text-align: justify;
+      line-height: 1.5;
+    }
+  }
+}
+
 .reference-item,
 .skill-item {
   margin: 10px 0;
+
+  h4{
+    font-weight: bold;
+  }
 }
 
 .skill-bar {
@@ -157,6 +248,7 @@ h3 {
   display: flex;
   align-items: center;
   margin-top: -5px;
+  margin-bottom: 30px;
 }
 
 .underline .red-line {
