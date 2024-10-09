@@ -173,6 +173,16 @@ h3 {
 
 .experience{
   margin: 0;
+  &.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
 }
 
 .experience-item {
@@ -364,4 +374,7 @@ svg {
   flex-grow: 1;
   height: 1px;
   background-color: #333; /* Grey color for the long line */
+}
+.content-block {
+  display: none;
 }
