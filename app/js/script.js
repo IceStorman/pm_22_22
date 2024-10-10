@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function()
     {
         const tracks = section.getElementsByClassName('track');
         const thumbs = section.getElementsByClassName('thumb');
+        const charts = section.getElementsByClassName('circle-progress');
 
         if (section.style.maxHeight)
         {
@@ -25,6 +26,14 @@ document.addEventListener("DOMContentLoaded", function()
                 })
                 Array.from(thumbs).forEach(thumb => {
                     thumb.style.left = 0 + '%';
+                })
+            }
+
+            if(charts.length > 0)
+            {
+                console.log('yuppie');
+                Array.from(charts).forEach(chart => {
+                    chart.style.strokeDasharray = "0, 100";
                 })
             }
         }
@@ -42,6 +51,15 @@ document.addEventListener("DOMContentLoaded", function()
                 Array.from(thumbs).forEach(thumb => {
                     const value = thumb.getAttribute('data-value');
                     thumb.style.left = value + '%';
+                })
+            }
+
+            if(charts.length > 0)
+            {
+                console.log('yuppie');
+                Array.from(charts).forEach(chart => {
+                    const value = chart.getAttribute('data-value');
+                    chart.style.strokeDasharray = value;
                 })
             }
         }
