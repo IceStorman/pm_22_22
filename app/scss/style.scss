@@ -376,5 +376,8 @@ svg {
   background-color: #333; /* Grey color for the long line */
 }
 .content-block {
-  display: none;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.2s ease-out;
 }
+

@@ -10,13 +10,15 @@ document.addEventListener("DOMContentLoaded", function()
 
     function toggleSection(section)
     {
-        if (section.style.display === "none" || section.style.display === "")
+        if (section.style.maxHeight)
         {
-            section.style.display = "block";
+            console.log("off");
+            section.style.maxHeight = null;
         }
         else
         {
-            section.style.display = "none";
+            console.log("on");
+            section.style.maxHeight = "300px";
         }
     }
 });
