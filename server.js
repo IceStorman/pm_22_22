@@ -86,6 +86,42 @@ const resumeData = {
             program: "HTML-S/CSS-3",
             value: 65
         }
+    ],
+    languages: [
+        {
+            language: "English",
+            percent: "95"
+        },
+        {
+            language: "German",
+            percent: "60"
+        },
+        {
+            language: "Spanish",
+            percent: "45"
+        }
+    ],
+    hobbies: [
+        {
+            hobby: "Book Reading",
+            value: 90
+        },
+        {
+            hobby: "Traveling",
+            value: 55
+        },
+        {
+            hobby: "Playing Chess",
+            value: 85
+        },
+        {
+            hobby: "Painting",
+            value: 60
+        },
+        {
+            hobby: "Graphic Design",
+            value: 65
+        }
     ]
 };
 

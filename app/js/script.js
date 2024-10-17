@@ -143,6 +143,44 @@ document.addEventListener("DOMContentLoaded", function()
                     </div>`).join('');
                     skillsBlock.innerHTML = skillsHTML;
                 }
+
+                const languagesBlock = document.getElementById('languagesBlock');
+                if(languagesBlock)
+                {
+                    const languagesHTML = data.languages.map(item =>
+                    `<div class="col-md-4">
+                            <div class="circle">
+                                <svg viewBox="0 0 36 36">
+                                    <path class="circle-bg"
+                                          d="M18 2.0845
+                                 a 15.9155 15.9155 0 0 1 0 31.831
+                                 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="circle-progress" data-value="${item.percent}, 100"
+                                          d="M18 2.0845
+                                 a 15.9155 15.9155 0 0 1 0 31.831
+                                 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                </svg>
+                                <div class="circle-text">
+                                    <strong>${item.percent}%</strong><br>${item.language}
+                                </div>
+                            </div>
+                        </div>`).join('');
+                    languagesBlock.innerHTML = languagesHTML;
+                }
+
+                const hobbiesBlock = document.getElementById('hobbiesBlock');
+                if(hobbiesBlock)
+                {
+                    const hobbiesHTML = data.hobbies.map(item =>
+                    `<div class="bar-item">
+                        <p>${item.hobby}</p>
+                        <div class="bar">
+                            <div class="track" data-value=${item.value}></div>
+                            <div class="thumb" data-value=${item.value}></div>
+                        </div>
+                    </div>`).join('');
+                    hobbiesBlock.innerHTML = hobbiesHTML;
+                }
             })
             .catch(error => {
                 console.error('Error loading section data:', error);
