@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", function()
     const contentButtons = document.getElementsByClassName('content-button');
     const contentBlocks = document.getElementsByClassName('content-block');
 
+    fetchSectionData();
+
     Array.from(contentButtons).forEach((contentButton, index) => {
         contentButton.addEventListener('click', () => toggleSection(contentBlocks[index]));
     });
@@ -39,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function()
         }
         else
         {
-            section.style.maxHeight = "300px";
+            section.style.maxHeight = "600px";
 
             if(tracks.length > 0)
             {
@@ -63,5 +65,88 @@ document.addEventListener("DOMContentLoaded", function()
                 })
             }
         }
+    }
+
+    function fetchSectionData() {
+        fetch(`http://localhost:4000/api/resume`)
+            .then(response => response.json())
+            .then(data => {
+                console.log('Loaded section data:', data);
+
+                const aboutMeContent = document.getElementById('aboutMeContent');
+                if (aboutMeContent) {
+                    const aboutMeHTML = `
+                        <p class="content-block">${data.aboutMe}</p>`;
+                    aboutMeContent.innerHTML = aboutMeHTML;
+                    console.log(aboutMeContent.innerHTML);
+                }
+
+                const educationBlock = document.getElementById('educationBlock');
+                if(educationBlock)
+                {
+                    const educationHTML = data.education.map(item =>
+                        `<div class="education-item">
+                            <div class="education-left">
+                                <h4>${item.university}</h4>
+                                <p class="years">${item.years}</p>
+                            </div>
+                            <div class="education-right">
+                                <h4>${item.degree}</h4>
+                                <p>${item.description}</p>
+                            </div>
+                        </div>`
+                    ).join('');
+                    educationBlock.innerHTML = educationHTML
+                }
+
+                const experienceBlock = document.getElementById('experienceBlock');
+                if(experienceBlock)
+                {
+                    const experienceHTML = data.experience.map(item =>
+                    `<div class="experience-item">
+                        <div class="experience-left">
+                            <h4>${item.company}</h4>
+                            <p class="location">${item.location}</p>
+                            <p class="years">${item.years}</p>
+                        </div>
+                        <div class="experience-right">
+                            <h4>${item.role}</h4>
+                            <p>${item.description}</p>
+                        </div>
+                    </div>`).join('');
+                    experienceBlock.innerHTML = experienceHTML;
+                }
+
+                const referencesBlock = document.getElementById('referencesBlock');
+                if(referencesBlock)
+                {
+                    const referencesHTML = data.references.map(item =>
+                    `<div class="reference-item">
+                        <h2>${item.name}</h2>
+                        <p class="address">${item.address}</p>
+                        <p>Tel: ${item.phone}</p>
+                        <p>Email: ${item.email}</p>
+                    </div>`).join('');
+                    referencesBlock.innerHTML = referencesHTML;
+                }
+
+                const skillsBlock = document.getElementById('skillsBlock');
+                if(skillsBlock)
+                {
+                    const skillsHTML = data.skills.map(item =>
+                    `<div class="bar-item">
+                        <p>${item.program}</p>
+                        <div class="bar">
+                            <div class="track" data-value=${item.value}></div>
+                            <div class="thumb" data-value=${item.value}></div>
+                        </div>
+                    </div>`).join('');
+                    skillsBlock.innerHTML = skillsHTML;
+                }
+            })
+            .catch(error => {
+                console.error('Error loading section data:', error);
+                alert('Error');
+            });
     }
 });
